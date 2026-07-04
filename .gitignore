@@ -1,5 +1,6 @@
 # ── Firebase credentials (never commit) ──
 firebase-config.js
+script.js
 
 # ── OS / editor junk ──
 .DS_Store

@@ -31,16 +31,11 @@ git clone <your-repo-url>
 cd "web app"
 ```
 
-### 2. Set up Firebase credentials
+### 2. Configure Firebase credentials
 
-The real API keys are **never committed** to the repository. You need to create your own config file:
+The Firebase config is kept in [`script.js`](script.js) (which is listed in `.gitignore` so real keys never reach a public repo).
 
-```bash
-# Copy the template
-cp firebase-config.example.js firebase-config.js
-```
-
-Then open `firebase-config.js` and fill in your project credentials from:
+If you're setting up a fresh copy, open `script.js` and update the `firebaseConfig` block at the top with your own project values from:
 > **Firebase Console** → Your Project → ⚙️ Project Settings → Your Apps → SDK Setup and Configuration
 
 ```js
@@ -94,19 +89,16 @@ npx serve .
 
 ---
 
-## 🔐 Security: Why API Keys Are Separated
+## 🔐 Security: About Firebase API Keys
 
-Firebase API keys for web apps are **not traditional secrets** — they identify your project but do not grant access on their own. Security is enforced by **Firestore Security Rules** on the server side.
+Firebase API keys for web apps are **not traditional secrets** — they identify your project but access is controlled by **Firestore Security Rules** on the server side.
 
-However, keeping keys out of version control is still best practice because:
-- It prevents your keys from appearing in public repositories
-- It lets different team members use their own Firebase projects for development
-- It makes it easy to rotate keys without changing committed code
+However, keeping keys out of public repositories is still best practice. The `.gitignore` file in this project excludes `script.js` from being committed to prevent accidental exposure.
 
 | File | Committed? | Contains |
 |---|---|---|
-| `firebase-config.js` | ❌ No (gitignored) | Real API keys |
-| `firebase-config.example.js` | ✅ Yes | Placeholder template |
+| `script.js` | ❌ No (gitignored) | App logic + Firebase config |
+| `firebase-config.example.js` | ✅ Yes | Placeholder template only |
 
 ---
 
