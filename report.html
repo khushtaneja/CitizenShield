@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Report Suspicious Activity — CitizenShield</title>
+  <meta name="description" content="Submit a suspicious activity report quickly and securely through the CitizenShield portal." />
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://unpkg.com/@phosphor-icons/web@2.1.1/src/index.js" defer></script>
+</head>
+<body>
+
+  <!-- ── Navbar ── -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-brand">
+        <div class="brand-icon"><i class="ph-fill ph-shield-star"></i></div>
+        <span>CitizenShield</span>
+      </a>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+        <i class="ph ph-list"></i>
+      </button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html"  class="nav-link">Home</a></li>
+        <li><a href="report.html" class="nav-link active">Report Activity</a></li>
+        <li><a href="login.html"  class="nav-link">Admin Dashboard</a></li>
+        <li><a href="report.html" class="nav-link btn-nav">
+          <i class="ph ph-plus-circle"></i> Report Now
+        </a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- ── Page ── -->
+  <main class="page-content">
+
+    <!-- Page Hero Banner -->
+    <div class="form-page-hero">
+      <div class="container">
+        <div class="breadcrumb">
+          <a href="index.html">Home</a>
+          <i class="ph ph-caret-right"></i>
+          <span>Report Activity</span>
+        </div>
+        <h1><i class="ph ph-warning-circle"></i> Report Suspicious Activity</h1>
+        <p>Fill in the details below. Your information helps authorities respond quickly and effectively.</p>
+      </div>
+    </div>
+
+    <!-- ── Form ── -->
+    <div class="form-wrapper">
+      <div class="form-card">
+        <!-- Card Header -->
+        <div class="form-card-header">
+          <div class="fh-icon"><i class="ph ph-note-pencil"></i></div>
+          <div>
+            <h2>Incident Report Form</h2>
+            <p>All fields marked with <span style="color:var(--danger);">*</span> are required.</p>
+          </div>
+        </div>
+
+        <!-- Card Body -->
+        <div class="form-body">
+          <form id="reportForm" novalidate>
+
+            <!-- Row 1: Name + Date/Time -->
+            <div class="form-row">
+              <div class="form-group">
+                <label for="reporterName">Full Name <span class="req">*</span></label>
+                <input
+                  type="text"
+                  id="reporterName"
+                  name="reporterName"
+                  class="form-control"
+                  placeholder="e.g. Rahul Sharma"
+                  autocomplete="name"
+                />
+                <div class="input-error" id="err-name">Please enter your name.</div>
+              </div>
+              <div class="form-group">
+                <label for="datetime">Date &amp; Time <span class="req">*</span></label>
+                <input
+                  type="datetime-local"
+                  id="datetime"
+                  name="datetime"
+                  class="form-control"
+                />
+                <div class="input-error" id="err-datetime">Please select a date and time.</div>
+              </div>
+            </div>
+
+            <!-- Location -->
+            <div class="form-group">
+              <label for="location">
+                <i class="ph ph-map-pin" style="color:var(--accent);margin-right:4px;"></i>
+                Location of Incident <span class="req">*</span>
+              </label>
+              <input
+                type="text"
+                id="location"
+                name="location"
+                class="form-control"
+                placeholder="e.g. Platform 3, Connaught Place Metro Station, New Delhi"
+              />
+              <div class="input-error" id="err-location">Please describe the location.</div>
+            </div>
+
+            <!-- Description -->
+            <div class="form-group">
+              <label for="description">
+                <i class="ph ph-text-align-left" style="color:var(--accent);margin-right:4px;"></i>
+                Description of Activity <span class="req">*</span>
+              </label>
+              <textarea
+                id="description"
+                name="description"
+                class="form-control"
+                rows="5"
+                placeholder="Describe what you observed in as much detail as possible — appearance, behaviour, time, and any other relevant information..."
+              ></textarea>
+              <div class="input-error" id="err-desc">Please provide a description (at least 20 characters).</div>
+              <div style="text-align:right;font-size:0.78rem;color:var(--text-light);margin-top:4px;">
+                <span id="charCount">0</span> characters
+              </div>
+            </div>
+
+            <!-- Image Upload -->
+            <div class="form-group">
+              <label>
+                <i class="ph ph-image" style="color:var(--accent);margin-right:4px;"></i>
+                Attach Image <span style="font-weight:400;color:var(--text-light);">(Optional)</span>
+              </label>
+              <div class="file-upload-area" id="fileDropZone">
+                <input type="file" id="imageUpload" name="imageUpload" accept="image/*" />
+                <div class="upload-icon">🖼️</div>
+                <div class="upload-text">
+                  <span>Click to upload</span> or drag and drop an image here<br/>
+                  <small style="color:var(--text-light);">PNG, JPG, WEBP — Max 5 MB</small>
+                </div>
+              </div>
+              <div class="file-preview" id="filePreview">
+                <i class="ph ph-file-image" style="color:var(--primary);font-size:1.1rem;"></i>
+                <span id="fileName">image.jpg</span>
+                <span class="rm-file" id="removeFile" title="Remove">✕</span>
+              </div>
+              <div class="input-error" id="err-image">File too large. Maximum allowed size is 5 MB.</div>
+            </div>
+
+            <!-- Disclaimer -->
+            <div style="background:rgba(59,111,202,0.05);border:1px solid rgba(59,111,202,0.12);border-radius:var(--radius-sm);padding:14px 18px;margin-bottom:24px;font-size:0.84rem;color:var(--text-mid);display:flex;align-items:flex-start;gap:10px;">
+              <i class="ph ph-info" style="color:var(--primary);font-size:1.1rem;margin-top:1px;flex-shrink:0;"></i>
+              <span>By submitting this form, you confirm that the information provided is accurate to the best of your knowledge. False reports may be subject to legal consequences.</span>
+            </div>
+
+            <!-- Actions -->
+            <div class="form-actions">
+              <button type="reset" class="btn btn-outline" id="resetBtn">
+                <i class="ph ph-arrow-counter-clockwise"></i> Reset Form
+              </button>
+              <button type="submit" class="btn btn-primary" id="submitBtn">
+                <i class="ph ph-paper-plane-tilt"></i> Submit Report
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <!-- Tips block -->
+      <div style="margin-top:22px;background:#fff;border:1px solid var(--border);border-radius:var(--radius-md);padding:22px 26px;box-shadow:var(--shadow-sm);">
+        <h4 style="font-size:0.95rem;font-weight:700;color:var(--text-dark);margin-bottom:14px;display:flex;align-items:center;gap:8px;">
+          <i class="ph ph-lightbulb" style="color:var(--warning);"></i> Tips for a Good Report
+        </h4>
+        <ul style="display:grid;grid-template-columns:1fr 1fr;gap:8px 20px;">
+          <li style="font-size:0.84rem;color:var(--text-mid);display:flex;align-items:flex-start;gap:7px;"><i class="ph ph-check" style="color:var(--success);margin-top:2px;flex-shrink:0;"></i>Be as specific as possible about the location</li>
+          <li style="font-size:0.84rem;color:var(--text-mid);display:flex;align-items:flex-start;gap:7px;"><i class="ph ph-check" style="color:var(--success);margin-top:2px;flex-shrink:0;"></i>Describe the appearance and behaviour clearly</li>
+          <li style="font-size:0.84rem;color:var(--text-mid);display:flex;align-items:flex-start;gap:7px;"><i class="ph ph-check" style="color:var(--success);margin-top:2px;flex-shrink:0;"></i>Mention the exact time of the incident if known</li>
+          <li style="font-size:0.84rem;color:var(--text-mid);display:flex;align-items:flex-start;gap:7px;"><i class="ph ph-check" style="color:var(--success);margin-top:2px;flex-shrink:0;"></i>Attach an image if you have one — it helps greatly</li>
+          <li style="font-size:0.84rem;color:var(--text-mid);display:flex;align-items:flex-start;gap:7px;"><i class="ph ph-check" style="color:var(--success);margin-top:2px;flex-shrink:0;"></i>Do not put yourself in danger to gather information</li>
+          <li style="font-size:0.84rem;color:var(--text-mid);display:flex;align-items:flex-start;gap:7px;"><i class="ph ph-check" style="color:var(--success);margin-top:2px;flex-shrink:0;"></i>Report only factual observations, not assumptions</li>
+        </ul>
+      </div>
+    </div>
+  </main>
+
+  <!-- ── Footer ── -->
+  <footer class="footer">
+    <p>© 2026 <strong>CitizenShield — Suspicious Activity Reporting System</strong> &nbsp;|&nbsp; Academic Project · National Security &amp; Defence Technologies</p>
+  </footer>
+
+  <!-- Toast Container -->
+  <div class="toast-container" id="toastContainer"></div>
+
+  <!-- Firebase SDK (compat) -->
+  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

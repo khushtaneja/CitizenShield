@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Operating Manual - CitizenShield</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #3b6fca;
+            --primary-dark: #2a52a0;
+            --accent: #7c5cbf;
+            --text-dark: #1e2a3a;
+            --text-mid: #4a5568;
+            --border: #d9e2f5;
+            --bg-page: #ffffff;
+        }
+
+        @media print {
+            body { background: white; padding: 0; margin: 0; }
+            .no-print { display: none; }
+            .page-break { page-break-before: always; }
+            a { text-decoration: none; color: inherit; }
+            pre, blockquote { page-break-inside: avoid; }
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--text-dark);
+            line-height: 1.6;
+            background: #f8faff;
+            padding: 40px;
+            margin: 0;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            padding: 60px 80px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+            border-radius: 8px;
+        }
+
+        .header {
+            text-align: center;
+            border-bottom: 3px solid var(--primary);
+            padding-bottom: 20px;
+            margin-bottom: 40px;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin: 0;
+            color: var(--primary-dark);
+            letter-spacing: -0.02em;
+        }
+
+        .header h2 {
+            font-size: 1.2rem;
+            color: var(--text-mid);
+            font-weight: 500;
+            margin-top: 5px;
+        }
+
+        .meta-info {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.9rem;
+            color: var(--text-light);
+            margin-top: 20px;
+            padding: 10px 0;
+            border-top: 1px solid var(--border);
+        }
+
+        h2.section-title {
+            color: var(--primary);
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 10px;
+            margin-top: 40px;
+            font-size: 1.6rem;
+            font-weight: 700;
+        }
+
+        h3 {
+            color: var(--text-dark);
+            margin-top: 25px;
+            font-size: 1.2rem;
+        }
+
+        p { margin-bottom: 15px; }
+
+        code {
+            background: #f1f5f9;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 0.9em;
+        }
+
+        pre {
+            background: #1e293b;
+            color: #f8fafc;
+            padding: 20px;
+            border-radius: 8px;
+            overflow-x: auto;
+            margin: 20px 0;
+            font-size: 0.9rem;
+        }
+
+        .tip-box {
+            background: #fef9c3;
+            border-left: 5px solid #eab308;
+            padding: 20px;
+            margin: 30px 0;
+            border-radius: 4px;
+            font-style: italic;
+        }
+
+        .important-box {
+            background: #fee2e2;
+            border-left: 5px solid #ef4444;
+            padding: 20px;
+            margin: 30px 0;
+            border-radius: 4px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        th, td {
+            text-align: left;
+            padding: 12px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        th { background: #f8fafc; color: var(--text-dark); }
+
+        ul { padding-left: 20px; }
+        li { margin-bottom: 8px; }
+
+        .footer {
+            margin-top: 60px;
+            text-align: center;
+            font-size: 0.8rem;
+            color: var(--text-light);
+            border-top: 1px solid var(--border);
+            padding-top: 20px;
+        }
+
+        .print-btn {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 15px 25px;
+            border-radius: 30px;
+            font-weight: 700;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(59,111,202,0.3);
+            z-index: 100;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .print-btn:hover { background: var(--primary-dark); }
+    </style>
+</head>
+<body>
+
+    <button class="print-btn no-print" onclick="window.print()">
+        <span>Print to PDF</span>
+    </button>
+
+    <div class="container">
+        <div class="header">
+            <h1>OPERATING MANUAL</h1>
+            <h2>Suspicious Activity Reporting System (CitizenShield)</h2>
+            <div class="meta-info">
+                <span><strong>Domain:</strong> National Security and Defence Technologies</span>
+                <span><strong>Version:</strong> 2.0</span>
+                <span><strong>Date:</strong> April 2026</span>
+            </div>
+        </div>
+
+        <section id="system-overview">
+            <h2 class="section-title">1. System Overview</h2>
+            <p><strong>CitizenShield</strong> is a dual-portal web application designed to strengthen national security through community participation. It allows citizens to report suspicious incidents and provides authorized authorities with a centralized dashboard to track, verify, and resolve these threats.</p>
+            
+            <h3>Key Components:</h3>
+            <ul>
+                <li><strong>Citizen Portal:</strong> Public-facing site for reporting.</li>
+                <li><strong>Admin Dashboard:</strong> Restricted panel for law enforcement/analysts.</li>
+                <li><strong>Backend Server:</strong> Node.js Express server for persistent data storage.</li>
+                <li><strong>Offline Fallback:</strong> Automatic switch to <code>localStorage</code> if the server is offline.</li>
+            </ul>
+        </section>
+
+        <section id="technical-setup">
+            <h2 class="section-title">2. Technical Setup & Installation</h2>
+            <p>To run the full version of the system with persistent data, you must set up the backend server.</p>
+
+            <h3>2.1 Prerequisites</h3>
+            <ul>
+                <li><strong>Node.js:</strong> Must be installed (v14 or higher recommended).</li>
+                <li><strong>Web Browser:</strong> Chrome, Edge, or Firefox.</li>
+            </ul>
+
+            <h3>2.2 First-Time Setup</h3>
+            <ol>
+                <li>Open your terminal/command prompt.</li>
+                <li>Navigate to the <code>backend</code> folder:
+                    <pre>cd "c:/MY ART/web app/backend"</pre>
+                </li>
+                <li>Install dependencies:
+                    <pre>npm install</pre>
+                </li>
+            </ol>
+
+            <h3>2.3 Starting the System</h3>
+            <p>You have two ways to start the backend:</p>
+            <ul>
+                <li><strong>Windows (Easy):</strong> Double-click the <code>start-server.bat</code> file in the <code>backend</code> folder.</li>
+                <li><strong>Terminal:</strong> Run <code>npm start</code> inside the <code>backend</code> directory.</li>
+            </ul>
+
+            <div class="important-box">
+                <strong>IMPORTANT:</strong> The backend runs on <strong>http://localhost:5000</strong>. Keep the terminal window open while using the application. If you close it, the app will switch to "Offline Mode".
+            </div>
+        </section>
+
+        <section id="citizen-guide">
+            <h2 class="section-title">3. Citizen User Guide (Reporting)</h2>
+            <h3>3.1 Filing a Report</h3>
+            <ol>
+                <li>Open <code>index.html</code> in your browser.</li>
+                <li>Navigate to <strong>"Report Activity"</strong>.</li>
+                <li>Fill in the required fields:
+                    <ul>
+                        <li><strong>Full Name:</strong> Your identity (handled discreetly).</li>
+                        <li><strong>Location:</strong> Specific details of where the incident occurred.</li>
+                        <li><strong>Description:</strong> Factual observation of the suspicious behavior (min. 20 chars).</li>
+                        <li><strong>Image:</strong> Optional photographic evidence.</li>
+                    </ul>
+                </li>
+                <li>Click <strong>Submit Report</strong>.</li>
+            </ol>
+
+            <h3>3.2 Submission Confirmation</h3>
+            <p>Once submitted, the system will provide a <strong>Report ID</strong> (e.g., <code>RPT-K9X2J</code>). Keep this ID for your records.</p>
+        </section>
+
+        <div class="page-break"></div>
+
+        <section id="admin-guide">
+            <h2 class="section-title">4. Admin User Guide (Management)</h2>
+            <h3>4.1 Accessing the Dashboard</h3>
+            <ol>
+                <li>Navigate to the <strong>Admin Dashboard</strong> link in the global navigation bar.</li>
+                <li>Enter the authorized credentials:
+                    <ul>
+                        <li><strong>Username:</strong> <code>admin</code></li>
+                        <li><strong>Password:</strong> <code>admin123</code></li>
+                    </ul>
+                </li>
+            </ol>
+
+            <h3>4.2 Managing Reports</h3>
+            <p>The dashboard provides a real-time feed of all incoming threats.</p>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Action</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Filter</strong></td>
+                        <td>Use the status buttons (Pending, Verified, Resolved) to sort the feed.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Search</strong></td>
+                        <td>Filter by location or name using the search bar.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Status Update</strong></td>
+                        <td>Use <strong>"Mark Verified"</strong> when confirmed, or <strong>"Mark Resolved"</strong> after intervention.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Delete</strong></td>
+                        <td>Remove duplicate or false reports permanently.</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>4.3 Demo Mode</h3>
+            <p>If the dashboard is empty during a presentation, click <strong>"Load Demo Reports"</strong> at the bottom to simulate a busy operations environment.</p>
+        </section>
+
+        <section id="data-security">
+            <h2 class="section-title">5. Data Flow & Security</h2>
+            <h3>5.1 Where is the Data?</h3>
+            <ul>
+                <li><strong>Online Mode:</strong> Data is saved in <code>backend/data/reports.json</code>. This is persistent and shared across all devices.</li>
+                <li><strong>Offline Mode:</strong> Data is saved in the browser's <code>localStorage</code>.</li>
+            </ul>
+
+            <h3>5.2 Security Measures</h3>
+            <ul>
+                <li><strong>Data Validation:</strong> Prevents SQL injection and empty/invalid data entry.</li>
+                <li><strong>Admin Authentication:</strong> Restricts dashboard access to personnel with valid credentials.</li>
+                <li><strong>Encapsulation:</strong> The backend separates logic from presentation for better security.</li>
+            </ul>
+        </section>
+
+        <section id="troubleshooting">
+            <h2 class="section-title">6. Troubleshooting</h2>
+            <p><strong>"The website says 'Server Offline'"</strong><br>
+            Ensure you ran <code>npm start</code> in the <code>backend</code> directory. The app will fallback to local storage automatically.</p>
+
+            <p><strong>"Images are not uploading"</strong><br>
+            Ensure the file size is under 5MB.</p>
+
+            <p><strong>"I forgot the Admin Password"</strong><br>
+            For the current prototype, credentials are hardcoded as <code>admin</code> / <code>admin123</code>.</p>
+            
+            <div class="tip-box">
+                <strong>Presentation Tip:</strong> During your assessment, show the <code>backend/data/reports.json</code> file to your professor after submitting a report. This proves the system is successfully writing data to a persistent database.
+            </div>
+        </section>
+
+        <section id="references">
+            <h2 class="section-title">7. References and Bibliography</h2>
+            <p>This project draws upon established national security protocols and modern web development standards.</p>
+
+            <h3>7.1 National Security & Defence</h3>
+            <ul>
+                <li><strong>DHS "If You See Something, Say Something®":</strong> U.S. Department of Homeland Security. [dhs.gov/see-something-say-something]</li>
+                <li><strong>Joint Publication 3-05: Special Operations:</strong> U.S. Joint Chiefs of Staff. (2020). Discussion on "Force Multipliers".</li>
+                <li><strong>Metropolitan Police - Action Counters Terrorism (ACT):</strong> UK Counter Terrorism Policing. (2023).</li>
+            </ul>
+
+            <h3>7.2 Technical Documentation</h3>
+            <ul>
+                <li>Node.js Documentation [nodejs.org]</li>
+                <li>Express.js Framework [expressjs.com]</li>
+                <li>Web Storage API (LocalStorage) [developer.mozilla.org]</li>
+                <li>Phosphor Icons [phosphoricons.com]</li>
+            </ul>
+        </section>
+
+        <div class="footer">
+            &copy; 2026 CitizenShield | Academic Project Submission | National Security & Defence Technologies
+        </div>
+    </div>
+
+</body>
+</html>

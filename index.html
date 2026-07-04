@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>National Security Citizen Portal — Suspicious Activity Reporting System</title>
+  <meta name="description" content="A citizen-facing portal to report suspicious activities and help maintain national security at the community level." />
+  <link rel="stylesheet" href="style.css" />
+  <!-- Phosphor Icons CDN -->
+  <script src="https://unpkg.com/@phosphor-icons/web@2.1.1/src/index.js" defer></script>
+</head>
+<body>
+
+  <!-- ── Navbar ── -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-brand">
+        <div class="brand-icon"><i class="ph-fill ph-shield-star"></i></div>
+        <span>CitizenShield</span>
+      </a>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+        <i class="ph ph-list"></i>
+      </button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html"  class="nav-link active">Home</a></li>
+        <li><a href="report.html" class="nav-link">Report Activity</a></li>
+        <li><a href="login.html"  class="nav-link">Admin Dashboard</a></li>
+        <li><a href="report.html" class="nav-link btn-nav">
+          <i class="ph ph-plus-circle"></i> Report Now
+        </a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- ── Page Content ── -->
+  <main class="page-content">
+
+    <!-- ── Hero ── -->
+    <section class="hero" id="home">
+      <div class="container">
+        <div class="hero-grid">
+
+          <!-- Left: Copy -->
+          <div class="hero-left">
+            <div class="hero-badge animate-fade-up">
+              <span class="dot"></span>
+              National Security Initiative — 2026
+            </div>
+            <h1 class="hero-title animate-fade-up delay-1">
+              Your Eyes Keep the<br/>
+              <span>Nation Secure</span>
+            </h1>
+            <p class="hero-desc animate-fade-up delay-2">
+              The Suspicious Activity Reporting System empowers every citizen to report unusual or threatening activities instantly. Together, we protect our communities.
+            </p>
+            <div class="hero-actions animate-fade-up delay-3">
+              <a href="report.html" class="btn btn-primary btn-lg">
+                <i class="ph ph-warning-circle"></i> File a Report
+              </a>
+              <a href="#how-it-works" class="btn btn-outline btn-lg">
+                <i class="ph ph-info"></i> How It Works
+              </a>
+            </div>
+            <div class="hero-stats animate-fade-up delay-5">
+              <div class="stat-item">
+                <div class="stat-num">24/7</div>
+                <div class="stat-label">Always available</div>
+              </div>
+              <div class="stat-item">
+                <div class="stat-num">100%</div>
+                <div class="stat-label">Secure submission</div>
+              </div>
+              <div class="stat-item">
+                <div class="stat-num">3-Step</div>
+                <div class="stat-label">Simple process</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right: Visual mockup -->
+          <div class="hero-visual animate-fade-up delay-2">
+            <div class="hero-graphic">
+              <p style="font-size:0.72rem;font-weight:700;color:#9aa3b8;letter-spacing:.1em;text-transform:uppercase;margin-bottom:14px;">Recent Reports</p>
+
+              <div class="mini-report-card">
+                <div class="mini-icon blue"><i class="ph-fill ph-map-pin"></i></div>
+                <div class="mini-info">
+                  <div class="mini-title">Unattended Bag — Railway Station</div>
+                  <div class="mini-sub">Sector 14, New Delhi • 09:15 AM</div>
+                </div>
+                <span class="mini-badge badge-pending">Pending</span>
+              </div>
+
+              <div class="mini-report-card">
+                <div class="mini-icon purple"><i class="ph-fill ph-user-circle-dashed"></i></div>
+                <div class="mini-info">
+                  <div class="mini-title">Suspicious Loitering Near Gate</div>
+                  <div class="mini-sub">Civil Lines, Jaipur • 11:40 AM</div>
+                </div>
+                <span class="mini-badge badge-verified">Verified</span>
+              </div>
+
+              <div class="mini-report-card">
+                <div class="mini-icon green"><i class="ph-fill ph-check-circle"></i></div>
+                <div class="mini-info">
+                  <div class="mini-title">Graffiti on Government Wall</div>
+                  <div class="mini-sub">MG Road, Pune • Yesterday</div>
+                </div>
+                <span class="mini-badge badge-resolved">Resolved</span>
+              </div>
+
+              <div style="margin-top:20px;padding-top:18px;border-top:1px solid var(--border);display:flex;align-items:center;gap:10px;">
+                <div style="flex:1;background:#f0f4ff;border-radius:8px;height:8px;overflow:hidden;">
+                  <div style="width:66%;height:100%;background:linear-gradient(90deg,var(--primary),var(--accent));border-radius:8px;"></div>
+                </div>
+                <span style="font-size:0.78rem;font-weight:600;color:var(--primary);">66% Reports Resolved</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── How It Works ── -->
+    <section class="section" id="how-it-works" style="background:#fff;">
+      <div class="container">
+        <div class="text-center">
+          <div class="section-tag animate-fade-up">How It Works</div>
+          <h2 class="section-title animate-fade-up delay-1">Report in Three Simple Steps</h2>
+          <p class="section-sub animate-fade-up delay-2">
+            No complicated process — just three quick steps to make your community safer.
+          </p>
+        </div>
+        <div class="features-grid" style="margin-top:52px;">
+          <div class="feature-card animate-fade-up">
+            <div class="feature-icon" style="background:rgba(59,111,202,0.10);color:var(--primary);">
+              <i class="ph-fill ph-eye"></i>
+            </div>
+            <h3 class="feature-title">1. Observe</h3>
+            <p class="feature-desc">
+              Notice something unusual? An unattended package, suspicious loitering, or any activity that seems out of place? Trust your instincts — it matters.
+            </p>
+          </div>
+          <div class="feature-card animate-fade-up delay-1">
+            <div class="feature-icon" style="background:rgba(124,92,191,0.10);color:var(--accent);">
+              <i class="ph-fill ph-note-pencil"></i>
+            </div>
+            <h3 class="feature-title">2. Report</h3>
+            <p class="feature-desc">
+              Fill out our simple online form with the location, a brief description, and optionally attach an image. The entire process takes under two minutes.
+            </p>
+          </div>
+          <div class="feature-card animate-fade-up delay-2">
+            <div class="feature-icon" style="background:rgba(34,168,99,0.10);color:var(--success);">
+              <i class="ph-fill ph-shield-check"></i>
+            </div>
+            <h3 class="feature-title">3. Authorities Act</h3>
+            <p class="feature-desc">
+              Your report is reviewed by authorized personnel who assess, verify, and take appropriate action. You contribute directly to national safety.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Why Reporting Matters ── -->
+    <section class="section" id="importance">
+      <div class="container">
+        <div class="importance-grid">
+          <!-- Left: content -->
+          <div>
+            <div class="section-tag animate-fade-up">Why It Matters</div>
+            <h2 class="section-title animate-fade-up delay-1">Citizens Are the First Line of Defence</h2>
+            <p class="section-sub animate-fade-up delay-2">
+              Law enforcement cannot be everywhere. Alert citizens noticing and reporting suspicious behaviour has historically prevented many incidents.
+            </p>
+            <div class="importance-list">
+              <div class="importance-item animate-fade-up delay-2">
+                <div class="imp-icon"><i class="ph ph-users-three"></i></div>
+                <div class="imp-text">
+                  <h4>Community Awareness</h4>
+                  <p>Every citizen who reports helps build a network of awareness that makes communities harder to target.</p>
+                </div>
+              </div>
+              <div class="importance-item animate-fade-up delay-3">
+                <div class="imp-icon"><i class="ph ph-clock-clockwise"></i></div>
+                <div class="imp-text">
+                  <h4>Early Warning System</h4>
+                  <p>Timely reports enable authorities to respond before minor suspicious activities escalate into serious threats.</p>
+                </div>
+              </div>
+              <div class="importance-item animate-fade-up delay-4">
+                <div class="imp-icon"><i class="ph ph-lock-key"></i></div>
+                <div class="imp-text">
+                  <h4>Secure & Confidential</h4>
+                  <p>All reports are handled with discretion. Your identity is protected and your information is stored securely.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Right: CTA card -->
+          <div class="animate-fade-up delay-2">
+            <div class="cta-block">
+              <h3>Ready to Report?</h3>
+              <p>If you've noticed something suspicious, don't wait. Submit a report right now — it only takes a minute and could make all the difference.</p>
+              <a href="report.html" class="btn btn-white btn-lg">
+                <i class="ph ph-warning-circle"></i> Submit a Report
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Features highlight ── -->
+    <section class="section" style="background:#fff;">
+      <div class="container">
+        <div class="text-center">
+          <div class="section-tag">System Features</div>
+          <h2 class="section-title">What This Platform Offers</h2>
+        </div>
+        <div class="features-grid" style="margin-top:44px;">
+          <div class="feature-card animate-fade-up">
+            <div class="feature-icon"><i class="ph-fill ph-device-mobile-camera"></i></div>
+            <h3 class="feature-title">Mobile Friendly</h3>
+            <p class="feature-desc">Access the portal from any device — smartphone, tablet, or desktop. The design adapts to any screen size.</p>
+          </div>
+          <div class="feature-card animate-fade-up delay-1">
+            <div class="feature-icon" style="background:rgba(34,168,99,0.10);color:var(--success);"><i class="ph-fill ph-check-square"></i></div>
+            <h3 class="feature-title">Instant Validation</h3>
+            <p class="feature-desc">Forms are validated immediately to ensure accurate and complete information reaches the authorities efficiently.</p>
+          </div>
+          <div class="feature-card animate-fade-up delay-2">
+            <div class="feature-icon" style="background:rgba(224,156,16,0.10);color:var(--warning);"><i class="ph-fill ph-chart-bar"></i></div>
+            <h3 class="feature-title">Admin Oversight</h3>
+            <p class="feature-desc">Authorities have a dedicated dashboard to track all reports, review details, and update statuses in real time.</p>
+          </div>
+          <div class="feature-card animate-fade-up">
+            <div class="feature-icon" style="background:rgba(217,64,64,0.10);color:var(--danger);"><i class="ph-fill ph-image-square"></i></div>
+            <h3 class="feature-title">Image Attachments</h3>
+            <p class="feature-desc">Citizens can attach photographs as evidence, making it easier for authorities to assess and respond appropriately.</p>
+          </div>
+          <div class="feature-card animate-fade-up delay-1">
+            <div class="feature-icon" style="background:rgba(124,92,191,0.10);color:var(--accent);"><i class="ph-fill ph-activity"></i></div>
+            <h3 class="feature-title">Status Tracking</h3>
+            <p class="feature-desc">Each report has a clear status — Pending, Verified, or Resolved — so the admin always knows exactly what needs attention.</p>
+          </div>
+          <div class="feature-card animate-fade-up delay-2">
+            <div class="feature-icon" style="background:rgba(59,111,202,0.10);color:var(--primary);"><i class="ph-fill ph-database"></i></div>
+            <h3 class="feature-title">Firebase Cloud Database</h3>
+            <p class="feature-desc">Reports are stored in Firebase Firestore — a secure, scalable cloud database — ensuring data persists across all devices and sessions.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ── Footer ── -->
+  <footer class="footer">
+    <p>
+      © 2026 <strong>CitizenShield — Suspicious Activity Reporting System</strong> &nbsp;|&nbsp;
+      Academic Project · National Security &amp; Defence Technologies
+    </p>
+  </footer>
+
+  <!-- Firebase SDK (compat) -->
+  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

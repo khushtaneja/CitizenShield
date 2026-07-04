@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin Dashboard — CitizenShield</title>
+  <meta name="description" content="Manage and review all submitted suspicious activity reports." />
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://unpkg.com/@phosphor-icons/web@2.1.1/src/index.js" defer></script>
+</head>
+<body>
+
+  <!-- ── Navbar ── -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-brand">
+        <div class="brand-icon"><i class="ph-fill ph-shield-star"></i></div>
+        <span>CitizenShield</span>
+      </a>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+        <i class="ph ph-list"></i>
+      </button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html"  class="nav-link">Home</a></li>
+        <li><a href="report.html" class="nav-link">Report Activity</a></li>
+        <li><a href="admin.html"  class="nav-link active">Admin Dashboard</a></li>
+        <li>
+          <button class="nav-link btn-nav" id="logoutBtn" style="background:linear-gradient(135deg,#d94040,#b83232);cursor:pointer;border:none;font-family:inherit;">
+            <i class="ph ph-sign-out"></i> Logout
+          </button>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- ── Page Content ── -->
+  <main class="page-content">
+
+    <!-- Dashboard Header -->
+    <div class="dash-header">
+      <div class="dash-header-inner">
+        <div>
+          <div class="dash-title">
+            <i class="ph ph-chart-bar" style="margin-right:10px;"></i>Admin Dashboard
+          </div>
+          <div class="dash-sub">Review and manage all submitted suspicious activity reports</div>
+        </div>
+        <div class="dash-actions">
+          <span id="adminGreeting" style="font-size:0.82rem;opacity:0.80;">Logged in as <strong>admin</strong></span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Dashboard Body -->
+    <div class="container section-sm">
+
+      <!-- Stat Cards -->
+      <div class="stat-bar animate-fade-up">
+        <div class="stat-card">
+          <div class="stat-card-icon blue"><i class="ph-fill ph-files"></i></div>
+          <div>
+            <div class="stat-card-num" id="statTotal">0</div>
+            <div class="stat-card-label">Total Reports</div>
+          </div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-card-icon yellow"><i class="ph-fill ph-clock"></i></div>
+          <div>
+            <div class="stat-card-num" id="statPending">0</div>
+            <div class="stat-card-label">Pending Review</div>
+          </div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-card-icon purple"><i class="ph-fill ph-magnifying-glass"></i></div>
+          <div>
+            <div class="stat-card-num" id="statVerified">0</div>
+            <div class="stat-card-label">Verified</div>
+          </div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-card-icon green"><i class="ph-fill ph-check-circle"></i></div>
+          <div>
+            <div class="stat-card-num" id="statResolved">0</div>
+            <div class="stat-card-label">Resolved</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Filter Bar -->
+      <div class="filter-bar animate-fade-up delay-1">
+        <span class="filter-label"><i class="ph ph-funnel" style="margin-right:4px;"></i>Filter:</span>
+        <button class="filter-btn active" data-filter="all"      id="filterAll">All Reports</button>
+        <button class="filter-btn"        data-filter="Pending"  id="filterPending">⏳ Pending</button>
+        <button class="filter-btn"        data-filter="Verified" id="filterVerified">🔍 Verified</button>
+        <button class="filter-btn"        data-filter="Resolved" id="filterResolved">✅ Resolved</button>
+        <input type="text" class="search-input" id="searchInput" placeholder="🔎  Search by name or location…" />
+      </div>
+
+      <!-- Reports List -->
+      <div class="reports-list" id="reportsList">
+        <!-- Populated by JS -->
+      </div>
+
+      <!-- Seed button (demo) -->
+      <div style="text-align:center;margin-top:30px;" id="seedWrap">
+        <button class="btn btn-outline" id="seedBtn">
+          <i class="ph ph-arrows-clockwise"></i> Load Demo Reports
+        </button>
+        <p style="font-size:0.78rem;color:var(--text-light);margin-top:8px;">No reports yet? Click above to add sample data for demonstration.</p>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- ── Footer ── -->
+  <footer class="footer">
+    <p>© 2026 <strong>CitizenShield — Admin Panel</strong> &nbsp;|&nbsp; Authorized Access Only</p>
+  </footer>
+
+  <!-- Toast Container -->
+  <div class="toast-container" id="toastContainer"></div>
+
+  <!-- Image Modal -->
+  <div class="img-modal-overlay hidden" id="imgModal">
+    <div class="img-modal-content">
+      <button class="img-modal-close" id="imgModalClose">✕</button>
+      <img id="imgModalImg" src="" alt="Report image" />
+    </div>
+  </div>
+
+  <!-- Firebase SDK (compat) -->
+  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
