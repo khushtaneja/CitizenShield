@@ -8,19 +8,12 @@
  */
 
 /* ────────────────────────────────────────────────
-   FIREBASE CONFIG & INITIALIZATION
+   FIREBASE INITIALIZATION
+   firebaseConfig is declared in firebase-config.js
+   (loaded as a <script> tag before this file in each HTML page)
 ──────────────────────────────────────────────── */
 
-const firebaseConfig = {
-  apiKey:            "AIzaSyDAIX0VvOJDb5RPWT7ehHshTl5abQ0BY44",
-  authDomain:        "citizenshield-9feb9.firebaseapp.com",
-  projectId:         "citizenshield-9feb9",
-  storageBucket:     "citizenshield-9feb9.firebasestorage.app",
-  messagingSenderId: "808708978891",
-  appId:             "1:808708978891:web:d3daeeb2ecf40fb18c434e",
-};
-
-// Initialize Firebase (compat SDK loaded via CDN in each HTML file)
+// Initialize Firebase (compat SDK + config loaded via HTML script tags)
 if (!firebase.apps.length) {
   firebase.initializeApp(firebaseConfig);
 }

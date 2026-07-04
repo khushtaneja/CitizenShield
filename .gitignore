@@ -1,0 +1,16 @@
+# ── Firebase credentials (never commit) ──
+firebase-config.js
+
+# ── OS / editor junk ──
+.DS_Store
+Thumbs.db
+desktop.ini
+*.log
+
+# ── IDE settings ──
+.vscode/
+.idea/
+
+# ── Node (if ever used for tooling) ──
+node_modules/
+npm-debug.log*
